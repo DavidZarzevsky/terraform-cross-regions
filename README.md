@@ -35,3 +35,37 @@ terraform-infrastructure/
 ├── main.tf
 ├── tf.gitignore
 ├── variables.tf
+
+terraform-infrastructure/
+├── modules/
+│   ├── client_vpn/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   ├── ec2_instance/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   ├── peering/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   ├── security_group/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   ├── subnet/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+├── scripts/
+├── README.md
+├── backend.tf
+├── main.tf
+├── tf.gitignore
+├── variables.tf
+
