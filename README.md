@@ -36,7 +36,8 @@ terraform-infrastructure/
 ├── tf.gitignore
 ├── variables.tf
 
-terraform-infrastructure/
+<pre>
+.
 ├── modules/
 │   ├── client_vpn/
 │   │   ├── main.tf
@@ -68,4 +69,5 @@ terraform-infrastructure/
 ├── main.tf
 ├── tf.gitignore
 ├── variables.tf
+</pre>
 
