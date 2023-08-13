@@ -12,3 +12,8 @@ variable "aws_first_profile" {
 variable "aws_second_profile" {
     default = "default"
 }
+
+variable "keypair_file" {
+  type    = string
+  default = "/Users/dzarzevs/.ssh/dz-key.pub"
+}
