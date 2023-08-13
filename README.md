@@ -77,3 +77,4 @@ Upon successful deployment, you'll gain the capability to SSH into instances usi
 ---
 
 Utilizing Terraform's capabilities,this project aims to illustrate how to architect, deploy, and manage multi-account, multi-region infrastructure in the cloud.
+Special thanks to Moshe Avni.
