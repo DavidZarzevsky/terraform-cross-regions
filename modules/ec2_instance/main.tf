@@ -9,7 +9,7 @@ resource "aws_instance" "first_instance_private" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.dz_keypair_1.key_name
   tags = {
-    Name = "david_aws_instance_private"
+    Name = "${var.name}_aws_instance_private"
   }
 }
 
@@ -24,7 +24,7 @@ resource "aws_instance" "first_instance_public" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.dz_keypair_1.key_name
   tags = {
-    Name = "david_aws_instance_public"
+    Name = "${var.name}_aws_instance_public"
   }
 }
 
@@ -39,24 +39,24 @@ resource "aws_instance" "second_instance_private" {
   key_name                    = aws_key_pair.dz_keypair_2.key_name
   associate_public_ip_address = true
   tags = {
-    Name = "david_aws_instance_private"
+    Name = "${var.name}_aws_instance_private"
   }
 }
 
 # Define an AWS key pair for the first provider
 resource "aws_key_pair" "dz_keypair_1" {
   provider   = aws.first
-  key_name   = var.creator_key_pair
+  key_name   = "${var.name}-key"
   public_key = file(var.keypair_file)
   tags = {
-    creator = "David"
+    creator = "${var.name}"
   }
 }
 
 # Define an AWS key pair for the second provider
 resource "aws_key_pair" "dz_keypair_2" {
   provider   = aws.second
-  key_name   = var.creator_key_pair
+  key_name   = "${var.name}-key"
   public_key = file(var.keypair_file)
   tags = {
     creator = "David"

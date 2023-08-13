@@ -30,11 +30,6 @@ variable "sec_ami" {
   default = "ami-01973462ceff35e85"
 }
 
-variable "creator_key_pair" {
-  type    = string
-  default = "dz-keypair"
-}
-
 variable "ubuntu_data_file" {
   type    = string
   default = "serverData.tpl"
@@ -42,4 +37,8 @@ variable "ubuntu_data_file" {
 
 variable "keypair_file" {
   type    = string
+}
+
+variable "name" {
+  type = string
 }

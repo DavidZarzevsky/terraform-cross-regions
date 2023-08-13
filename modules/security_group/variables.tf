@@ -9,3 +9,7 @@ variable "second_vpc_id" {
 variable "all_cidr_block" {
     default = "0.0.0.0/0"
 }
+
+variable "name" {
+  type = string
+}

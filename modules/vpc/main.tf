@@ -3,7 +3,7 @@ resource "aws_vpc" "first" {
   provider    = aws.first
   cidr_block  = var.vpc_cidr_block_first
   tags = {
-    Name      = "David-first"
+    Name      = "${var.name}-first"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_vpc" "second" {
   provider    = aws.second
   cidr_block  = var.vpc_cidr_block_second
   tags = {
-    Name      = "David-second"
+    Name      = "${var.name}-second"
   }
 }
 

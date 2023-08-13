@@ -15,3 +15,7 @@ variable "first_tgw" {
 variable "second_tgw" {
   type    = string
 }
+
+variable "name" {
+  type = string
+}

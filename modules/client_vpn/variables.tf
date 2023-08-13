@@ -67,3 +67,7 @@ variable "client_certificate_chain" {
   type = string
   default = "~/custom_folder/ca.crt"
 }
+
+variable "name" {
+  type = string
+}

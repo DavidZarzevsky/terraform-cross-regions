@@ -2,7 +2,7 @@
 resource "aws_ec2_transit_gateway" "first" {
   provider  = aws.first
   tags = {
-    Name    = "David-first"
+    Name    = "${var.name}-first-tgw"
   }
 }
 
@@ -10,7 +10,7 @@ resource "aws_ec2_transit_gateway" "first" {
 resource "aws_ec2_transit_gateway" "second" {
   provider  = aws.second
   tags = {
-    Name    = "David-second"
+    Name    = "${var.name}-second-tgw"
   }
 }
 

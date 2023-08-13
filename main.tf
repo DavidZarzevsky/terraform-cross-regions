@@ -1,3 +1,4 @@
+
 # Define AWS provider for the first region and account
 provider "aws" {
   alias   = "first"
@@ -72,7 +73,7 @@ module "ec2_instance" {
   second_sg = [module.security_group.second_security_group_id]
   second_subnet = module.subnet.second_private_subnet_id
   first_subnet_public = module.subnet.first_public_subnet_id
-  keypair_file = var.keypair_file
+  keypair_file = var.keypair_file_path
 }
 
 # Instantiate the Client VPN module with custom providers
@@ -87,6 +88,7 @@ module "client_vpn" {
   first_subnet_private = module.subnet.first_private_subnet_id
   first_subnet_public = module.subnet.first_public_subnet_id
   first_vpc = module.vpc.first_vpc_id
+  name = var.name
 }
 
 # Define outputs for the public and private IP addresses

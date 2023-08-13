@@ -1,7 +1,7 @@
 # Define an AWS EC2 Client VPN endpoint
 resource "aws_ec2_client_vpn_endpoint" "first" {
   provider = aws.first
-  description = "Client VPN for David"
+  description = "Client VPN for ${var.name}"
   server_certificate_arn = aws_acm_certificate.server_vpn_cert.arn
   authentication_options {
     type = "certificate-authentication"
@@ -16,7 +16,7 @@ resource "aws_ec2_client_vpn_endpoint" "first" {
   client_cidr_block      = var.client_cidr_block
   dns_servers = [var.google_open_dns]
   tags = {
-    Name = "David-ClientVPN"
+    Name = "${var.name}-ClientVPN"
   }
   depends_on = [
     aws_acm_certificate.server_vpn_cert,
@@ -63,7 +63,7 @@ resource "aws_ec2_client_vpn_network_association" "client_vpn_association_public
 # Define an AWS security group for the VPN
 resource "aws_security_group" "vpn_secgroup" {
   provider = aws.first
-  name   = "vpn-sg"
+  name   = "${var.name}-vpn-sg"
   vpc_id = var.first_vpc
   description = "Allow inbound traffic from port 443, to the VPN"
 
