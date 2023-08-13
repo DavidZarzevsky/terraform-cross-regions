@@ -15,12 +15,12 @@ output "second_transit_gateway_id" {
 
 output "peering_attachment_id" {
   description = "The ID of the peering attachment."
-  value       = aws_ec2_transit_gateway_peering_attachment.example.id
+  value       = aws_ec2_transit_gateway_peering_attachment.gtw_peer.id
 }
 
 output "peering_accepter_attachment_id" {
   description = "The ID of the peering attachment accepter."
-  value       = aws_ec2_transit_gateway_peering_attachment_accepter.example.id
+  value       = aws_ec2_transit_gateway_peering_attachment_accepter.peer_attach.id
 }
 
 output "first_internet_gateway_id" {

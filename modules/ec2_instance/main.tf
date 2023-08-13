@@ -5,6 +5,7 @@ resource "aws_instance" "first_instance_private" {
   instance_type               = var.instance_type
   subnet_id                   = var.first_subnet
   vpc_security_group_ids      = var.first_sg
+  user_data                   = file(var.ubuntu_data_file)
   associate_public_ip_address = true
   key_name                    = aws_key_pair.dz_keypair_1.key_name
   tags = {
@@ -19,6 +20,7 @@ resource "aws_instance" "first_instance_public" {
   instance_type               = var.instance_type
   subnet_id                   = var.first_subnet_public
   vpc_security_group_ids      = var.first_sg
+  user_data                   = file(var.ubuntu_data_file)
   associate_public_ip_address = true
   key_name                    = aws_key_pair.dz_keypair_1.key_name
   tags = {
@@ -33,6 +35,7 @@ resource "aws_instance" "second_instance_private" {
   instance_type               = var.instance_type
   subnet_id                   = var.second_subnet
   vpc_security_group_ids      = var.second_sg
+  user_data                   = file(var.ubuntu_data_file)
   key_name                    = aws_key_pair.dz_keypair_2.key_name
   associate_public_ip_address = true
   tags = {
@@ -59,3 +62,5 @@ resource "aws_key_pair" "dz_keypair_2" {
     creator = "David"
   }
 }
+
+

@@ -86,15 +86,15 @@ resource "aws_security_group" "vpn_secgroup" {
 # Define an ACM certificate for the VPN server
 resource "aws_acm_certificate" "server_vpn_cert" {
  provider = aws.first
- certificate_body  = var.certificate_body
- private_key       = var.private_key
- certificate_chain = var.certificate_chain
+ certificate_body  = file(var.certificate_body)
+ private_key       = file(var.private_key)
+ certificate_chain = file(var.certificate_chain)
 }
 
 # Define an ACM certificate for the VPN client
 resource "aws_acm_certificate" "client_vpn_cert" {
  provider = aws.first
-  certificate_body  = var.client_certificate_body
-  private_key       = var.client_private_key
-  certificate_chain = var.client_certificate_chain
+  certificate_body  = file(var.client_certificate_body)
+  private_key       = file(var.client_private_key)
+  certificate_chain = file(var.client_certificate_chain)
 }
