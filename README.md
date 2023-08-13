@@ -2,7 +2,7 @@
 
 **Multi-Account Multi-Region Terraform Infrastructure Deployment**
 
-This repository exemplifies the deployment and connection of AWS PCs across AWS accounts and regions through the use of a transit gateway. The primary achievement of this project is to enable SSH access to instances via a client VPN in one account, providing a secure peering.
+This repository exemplifies the deployment and connection of AWS VPCs across AWS accounts and regions through the use of a transit gateway. This project's primary achievement is enabling SSH access to instances across VPC via a client VPN in one account, providing a secure peering.
 
 ## Table of Contents
 
