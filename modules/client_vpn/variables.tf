@@ -40,30 +40,30 @@ variable "all_traffic_to_network" {
 
 variable "certificate_body" {
   type = string
-  default = file("~/custom_folder/server.crt")
+  default = "~/custom_folder/server.crt"
 }
 
 variable "private_key" {
   type = string
-  default = file("~/custom_folder/server.key")
+  default = "~/custom_folder/server.key"
 }
 
 variable "certificate_chain" {
   type = string
-  default = file("~/custom_folder/ca.crt")
+  default = "~/custom_folder/ca.crt"
 }
 
 variable "client_certificate_body" {
   type = string
-  default = file("~/custom_folder/client1.domain.tld.crt")
+  default = "~/custom_folder/client1.domain.tld.crt"
 }
 
 variable "client_private_key" {
   type = string
-  default = file("~/custom_folder/client1.domain.tld.key")
+  default = "~/custom_folder/client1.domain.tld.key"
 }
 
 variable "client_certificate_chain" {
   type = string
-  default = file("~/custom_folder/ca.crt")
+  default = "~/custom_folder/ca.crt"
 }

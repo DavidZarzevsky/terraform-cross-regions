@@ -90,21 +90,5 @@ resource "aws_ec2_transit_gateway_route" "static_peering_second" {
   destination_cidr_block = var.first_cider
   transit_gateway_route_table_id = aws_ec2_transit_gateway.second.association_default_route_table_id
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_peering_attachment.gtw_peer.id
+  depends_on = [aws_ec2_transit_gateway_peering_attachment_accepter.peer_attach]
 }
-
-
-/*
-We went through the configuration and made the changes below to the US-East-1 account:
-
-- Added a route to vpc-first route table sending 10.2.0.0/16 to the TGW
-- Added a route to tgw-rtb-0de06b5aa5b77ed61 to send 10.2.0.0/16 to the TGW Peering attachment and sending 10.1.0.0/16 to the vpc-077957e8817a9f6f0.
-
-We went through the configuration and made the changes below to the US-West-1 account:
-
-- Added a route to vpc-second route table sending 10.1.0.0/16 traffic to the TGW
-- Added routes to tgw-rtb-0b0cb1b1dfd87489e sending 10.1.0.0/16 to the TGW peering attachment and sending 10.2.0.0/16 to vpc-0775b3fd0898aa6e4
-
-Copy the pem to the second instance
-scp -i /Users/dzarzevs/.ssh/dz-key /Users/dzarzevs/.ssh/dz-key.pem ubuntu@10.1.1.109:~/
-
-*/

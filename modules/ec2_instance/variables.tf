@@ -39,3 +39,8 @@ variable "creator_key_pair" {
   type    = string
   default = "dz-keypair"
 }
+
+variable "ubuntu_data_file" {
+  type    = string
+  default = "serverData.tpl"
+}
