@@ -39,13 +39,13 @@ resource "aws_ec2_client_vpn_authorization_rule" "first" {
   authorize_all_groups   = true
 }
 
-## Define another authorization rule for the Client VPN endpoint
-#resource "aws_ec2_client_vpn_authorization_rule" "first_1" {
-#  provider = aws.first
-#  client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.first.id
-#  target_network_cidr    = "10.1.0.0/16"
-#  authorize_all_groups   = true
-#}
+# Define another authorization rule for the Client VPN endpoint
+resource "aws_ec2_client_vpn_authorization_rule" "first_1" {
+  provider = aws.first
+  client_vpn_endpoint_id = aws_ec2_client_vpn_endpoint.first.id
+  target_network_cidr    = "10.1.0.0/16"
+  authorize_all_groups   = true
+}
 
 # Associate the Client VPN endpoint with private and public subnets
 resource "aws_ec2_client_vpn_network_association" "client_vpn_association_private" {
