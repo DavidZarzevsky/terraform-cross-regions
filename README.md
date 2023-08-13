@@ -57,6 +57,7 @@ The **Terraform Cross-Region Deployment** project demonstrates the potential of 
 ├── backend.tf
 ├── main.tf
 ├── tf.gitignore
+├── serverData.tpl
 ├── variables.tf
 </pre>
 
