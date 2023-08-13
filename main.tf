@@ -72,6 +72,7 @@ module "ec2_instance" {
   second_sg = [module.security_group.second_security_group_id]
   second_subnet = module.subnet.second_private_subnet_id
   first_subnet_public = module.subnet.first_public_subnet_id
+  keypair_file = var.keypair_file
 }
 
 # Instantiate the Client VPN module with custom providers

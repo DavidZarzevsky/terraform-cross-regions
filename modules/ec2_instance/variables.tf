@@ -30,11 +30,6 @@ variable "sec_ami" {
   default = "ami-01973462ceff35e85"
 }
 
-variable "keypair_file" {
-  type    = string
-  default = "/Users/dzarzevs/.ssh/dz-key.pub"
-}
-
 variable "creator_key_pair" {
   type    = string
   default = "dz-keypair"
@@ -43,4 +38,8 @@ variable "creator_key_pair" {
 variable "ubuntu_data_file" {
   type    = string
   default = "serverData.tpl"
+}
+
+variable "keypair_file" {
+  type    = string
 }
