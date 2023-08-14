@@ -1,17 +1,19 @@
-variable "vpc_cidr_block_first" {
-  type    = string
-  default = "10.1.0.0/16"
+variable "vpc_cidr_block_src" {
+  type = string
 }
 
-variable "vpc_cidr_block_second" {
-  type    = string
-  default = "10.2.0.0/16"
+variable "vpc_cidr_block_dst" {
+  type = string
 }
 
-variable "first_tgw" {
-  type    = string
+variable "src_tgw" {
+  type = string
 }
 
-variable "second_tgw" {
-  type    = string
+variable "dst_tgw" {
+  type = string
+}
+
+variable "name" {
+  type = string
 }

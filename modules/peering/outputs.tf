@@ -1,16 +1,16 @@
-output "first_caller_identity" {
-  description = "The caller identity of the first AWS provider."
-  value       = data.aws_caller_identity.first
+output "src_caller_identity" {
+  description = "The caller identity of the src AWS provider."
+  value       = data.aws_caller_identity.src
 }
 
-output "first_transit_gateway_id" {
-  description = "The ID of the first transit gateway."
-  value       = aws_ec2_transit_gateway.first.id
+output "src_transit_gateway_id" {
+  description = "The ID of the src transit gateway."
+  value       = aws_ec2_transit_gateway.src.id
 }
 
-output "second_transit_gateway_id" {
-  description = "The ID of the second transit gateway."
-  value       = aws_ec2_transit_gateway.second.id
+output "dst_transit_gateway_id" {
+  description = "The ID of the dst transit gateway."
+  value       = aws_ec2_transit_gateway.dst.id
 }
 
 output "peering_attachment_id" {
@@ -23,7 +23,7 @@ output "peering_accepter_attachment_id" {
   value       = aws_ec2_transit_gateway_peering_attachment_accepter.peer_attach.id
 }
 
-output "first_internet_gateway_id" {
-  description = "The ID of the first internet gateway."
-  value       = aws_internet_gateway.first.id
+output "src_internet_gateway_id" {
+  description = "The ID of the src internet gateway."
+  value       = aws_internet_gateway.src.id
 }
