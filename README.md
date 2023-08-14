@@ -2,11 +2,14 @@
 
 **Multi-Account Multi-Region Terraform Infrastructure Deployment**
 
-This repository exemplifies the deployment and connection of AWS VPCs across AWS accounts and regions through the use of a transit gateway. This project's primary achievement is enabling SSH access to instances across VPC via a client VPN in one account, providing a secure peering.
+This repository exemplifies the deployment and connection of AWS VPCs across AWS accounts and regions through the use of a transit gateway. This project's primary achievement is enabling SSH access to instances across VPC via a client VPN in one account, providing a secure peering. 
 
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Deploy](#deploy)
+- [Destroy](#destroy)
+- [Execution Permission](#execution-permission)
 - [Features](#features)
 - [Directory Structure](#directory-structure)
 - [Getting Started](#getting-started)
@@ -15,6 +18,38 @@ This repository exemplifies the deployment and connection of AWS VPCs across AWS
 ## Introduction
 
 The **Terraform Cross-Region Deployment** project demonstrates the potential of Terraform in orchestrating complex cloud infrastructures. It showcases the ability to create and manage AWS VPCs across different accounts and regions, and establish secure communication pathways between them using a transit gateway. The ultimate goal is to enable technical enthusiasts and professionals to SSH into instances using a client VPN, promoting security, accessibility, and organizational efficiency.
+
+## Deploy
+
+To deploy the infrastructure, follow these steps:
+
+1. Run the next command in your terminal
+```sh
+cd ${path to terraform-cross-regions directory}
+terraform init
+chmod u+x modules/scripts/*
+terraform plan
+terraform apply
+```
+
+2. Download AWS Client VPN for Desktop:
+https://aws.amazon.com/vpn/client-vpn-download/
+
+3. Add a new profile using the .ovpn file created by the script (located in the project directory)
+
+4. Connect to the new profile
+
+5. Now you can SSH to the source account EC2 instance using his private IP
+   In order to SSH the EC2 destination account (other account, other region) 
+   Run ```scp -i /your/path/to/key-file /your/path/to/key-file ${EC2 OS name}@${EC2 private IP}:~/ ```
+
+## Destroy
+
+To Destroy the infrastructure, follow these steps:
+
+```sh
+terraform destroy
+```
 
 ## Features
 
