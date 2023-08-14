@@ -8,14 +8,14 @@ resource "aws_security_group" "src" {
     from_port   = 0
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.all_cidr_block]
+    cidr_blocks = [var.sg_ingress_cidr_block]
   }
   # Define an egress rule to allow all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.all_cidr_block]
+    cidr_blocks = [var.sg_egress_cidr_block]
   }
   tags = {
     Name = "david_src_security_group"
@@ -32,14 +32,14 @@ resource "aws_security_group" "dst" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.all_cidr_block]
+    cidr_blocks = [var.sg_ingress_cidr_block]
   }
   # Define an egress rule to deny all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [var.all_cidr_block]
+    cidr_blocks = [var.sg_egress_cidr_block]
   }
   tags = {
     Name = "${var.name}_security_group_dst"

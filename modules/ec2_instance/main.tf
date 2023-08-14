@@ -1,7 +1,7 @@
 # Define an AWS instance in the src VPC private subnet
 resource "aws_instance" "src_instance_private" {
   provider                    = aws.src
-  ami                         = var.src_ami
+  ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.src_subnet
   vpc_security_group_ids      = var.src_sg
@@ -16,7 +16,7 @@ resource "aws_instance" "src_instance_private" {
 # Define an AWS instance in the src VPC public subnet
 resource "aws_instance" "src_instance_public" {
   provider                    = aws.src
-  ami                         = var.src_ami
+  ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.src_subnet_public
   vpc_security_group_ids      = var.src_sg
@@ -31,7 +31,7 @@ resource "aws_instance" "src_instance_public" {
 # Define an AWS instance in the dst VPC private subnet
 resource "aws_instance" "dst_instance_private" {
   provider                    = aws.dst
-  ami                         = var.sec_ami
+  ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = var.dst_subnet
   vpc_security_group_ids      = var.dst_sg
