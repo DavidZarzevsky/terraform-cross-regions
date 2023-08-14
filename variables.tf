@@ -36,8 +36,20 @@ variable "keypair_file_path" {
 
 variable "client_cidr_block" {
   description = "VPN client CIDR block"
-  type    = string
-  default = "10.200.0.0/16"
+  type        = string
+  default     = "10.200.0.0/16"
+}
+
+variable "vpc_cidr_block_src" {
+  description = "Source VPC CIDR block"
+  type        = string
+  default     = "10.1.0.0/16"
+}
+
+variable "vpc_cidr_block_dst" {
+  description = "Destination VPC CIDR block"
+  type        = string
+  default     = "10.2.0.0/16"
 }
 
 variable "all_traffic_to_network" {
@@ -46,41 +58,22 @@ variable "all_traffic_to_network" {
   default     = "10.0.0.0/16"
 }
 
-variable "certificate_body" {
-  description = "Path to the server's SSL/TLS certificate body file"
-  type        = string
-  default     = "~/custom_folder/server.crt"
-}
-
-variable "server_private_key" {
-  description = "Path to the server's SSL/TLS private key file"
-  type        = string
-  default     = "~/custom_folder/server.key"
-}
-
-variable "certificate_chain" {
-  description = "Path to the SSL/TLS certificate chain file"
-  type        = string
-  default     = "~/custom_folder/ca.crt"
-}
-
-variable "client_certificate_body" {
-  description = "Path to the client's SSL/TLS certificate body file"
-  type        = string
-  default     = "~/custom_folder/client1.domain.tld.crt"
-}
-
-variable "client_private_key" {
-  description = "Path to the client's SSL/TLS private key file"
-  type        = string
-  default     = "~/custom_folder/client1.domain.tld.key"
-}
-
 variable "open_dns_address" {
   description = "OpenDNS IP address"
   type        = string
   default     = "8.8.8.8"
 }
 
+variable "key_save_folder" {
+  description = "Where to store keys (relative to pki folder)"
+  type        = string
+  default     = "clientvpn_keys"
+}
+
+variable "env" {
+  description = "Your account environment"
+  type        = string
+  default     = "prod"
+}
 
 

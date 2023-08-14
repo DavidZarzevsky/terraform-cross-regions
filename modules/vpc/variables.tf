@@ -1,11 +1,9 @@
 variable "vpc_cidr_block_src" {
-  type    = string
-  default = "10.1.0.0/16"
+  type = string
 }
 
 variable "vpc_cidr_block_dst" {
-  type    = string
-  default = "10.2.0.0/16"
+  type = string
 }
 
 variable "src_tgw" {

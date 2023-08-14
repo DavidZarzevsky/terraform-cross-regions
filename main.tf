@@ -18,10 +18,12 @@ module "vpc" {
     aws.src = aws.src
     aws.dst = aws.dst
   }
-  source  = "./modules/vpc"
-  src_tgw = module.peering.src_transit_gateway_id
-  dst_tgw = module.peering.dst_transit_gateway_id
-  name    = var.name
+  source             = "./modules/vpc"
+  src_tgw            = module.peering.src_transit_gateway_id
+  dst_tgw            = module.peering.dst_transit_gateway_id
+  name               = var.name
+  vpc_cidr_block_dst = var.vpc_cidr_block_dst
+  vpc_cidr_block_src = var.vpc_cidr_block_src
 }
 
 # Instantiate the Subnet module with custom providers
@@ -85,36 +87,18 @@ module "client_vpn" {
     aws.src = aws.src
     aws.dst = aws.dst
   }
-  source             = "./modules/client_vpn"
-  src_sg             = module.security_group.src_security_group_id
-  src_stransit_gw    = module.peering.src_transit_gateway_id
-  src_subnet_private = module.subnet.src_private_subnet_id
-  src_subnet_public  = module.subnet.src_public_subnet_id
-  src_vpc            = module.vpc.src_vpc_id
-  name               = var.name
+  source                 = "./modules/client_vpn"
+  src_sg                 = module.security_group.src_security_group_id
+  src_stransit_gw        = module.peering.src_transit_gateway_id
+  src_subnet_private     = module.subnet.src_private_subnet_id
+  src_subnet_public      = module.subnet.src_public_subnet_id
+  src_vpc                = module.vpc.src_vpc_id
+  name                   = var.name
   all_traffic_to_network = var.all_traffic_to_network
-  certificate_body = var.certificate_body
-  certificate_chain = var.certificate_chain
-  client_certificate_body = var.client_certificate_body
-  client_certificate_chain = var.certificate_chain
-  client_cidr_block = var.client_cidr_block
-  client_private_key = var.client_private_key
-  open_dns = var.open_dns_address
-  private_key = var.server_private_key
-}
-
-resource "null_resource" "export_clients_vpn_config" {
-  depends_on = [module.client_vpn]
-
-  provisioner "local-exec" {
-    environment = {
-      "CLIENT_VPN_ID"    = module.client_vpn.client_vpn_endpoint_id
-      "CLIENT_CERT_NAME" = "${var.name}-cert"
-      "TENANT_NAME" = "aws"
-      "KEY_SAVE_FOLDER" = "/Users/dzarzevs/custom_folder"
-      "ENV" = var.aws_src_profile
-      "REGION" = var.aws_src_region
-    }
-    command = "${path.module}/getVPN.sh"
-  }
+  client_cidr_block      = var.client_cidr_block
+  open_dns               = var.open_dns_address
+  key_save_folder        = var.key_save_folder
+  aws_src_region         = var.aws_src_region
+  aws_src_profile        = var.aws_src_profile
+  env                    = var.env
 }
