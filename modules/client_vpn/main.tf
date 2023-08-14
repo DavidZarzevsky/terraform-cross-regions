@@ -27,7 +27,7 @@ resource "null_resource" "client_certificate" {
 
   provisioner "local-exec" {
     environment = local.provisioner_base_env
-    command = "modules/scripts/create_client.sh"
+    command     = "modules/scripts/create_client.sh"
   }
 }
 

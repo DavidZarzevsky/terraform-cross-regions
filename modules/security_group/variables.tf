@@ -6,8 +6,12 @@ variable "dst_vpc_id" {
   type = string
 }
 
-variable "all_cidr_block" {
-  default = "0.0.0.0/0"
+variable "sg_ingress_cidr_block" {
+  type = string
+}
+
+variable "sg_egress_cidr_block" {
+  type = string
 }
 
 variable "name" {

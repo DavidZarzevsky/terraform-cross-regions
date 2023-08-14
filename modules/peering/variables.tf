@@ -19,19 +19,19 @@ variable "dst_private_subnet" {
 }
 
 variable "aws_src_region" {
-  default = "us-east-1"
+  type = string
 }
 
 variable "aws_dst_region" {
-  default = "us-west-1"
+  type = string
 }
 
 variable "dst_cider" {
-  default = "10.2.0.0/16"
+  type = string
 }
 
 variable "src_cider" {
-  default = "10.1.0.0/16"
+  type = string
 }
 
 variable "name" {

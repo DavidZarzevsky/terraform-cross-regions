@@ -19,15 +19,11 @@ variable "dst_sg" {
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  type = string
 }
 
-variable "src_ami" {
-  default = "ami-02675d30b814d1daa"
-}
-
-variable "sec_ami" {
-  default = "ami-01973462ceff35e85"
+variable "ami" {
+  type = string
 }
 
 variable "ubuntu_data_file" {

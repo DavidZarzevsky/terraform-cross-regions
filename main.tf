@@ -32,10 +32,17 @@ module "subnet" {
     aws.src = aws.src
     aws.dst = aws.dst
   }
-  source     = "./modules/subnet"
-  src_vpc_id = module.vpc.src_vpc_id
-  dst_vpc_id = module.vpc.dst_vpc_id
-  igw        = module.peering.src_internet_gateway_id
+  source                        = "./modules/subnet"
+  src_vpc_id                    = module.vpc.src_vpc_id
+  dst_vpc_id                    = module.vpc.dst_vpc_id
+  igw                           = module.peering.src_internet_gateway_id
+  igw_network_traffic           = var.igw_network_traffic
+  name                          = var.name
+  dst_private_subnet_cidr_block = var.dst_private_subnet_cidr_block
+  src_private_subnet_cidr_block = var.src_private_subnet_cidr_block
+  src_public_subnet_cidr_block  = var.src_public_subnet_cidr_block
+  dst_region                    = var.aws_dst_region
+  src_region                    = var.aws_src_region
 }
 
 # Instantiate the Peering module with custom providers
@@ -51,6 +58,10 @@ module "peering" {
   src_public_subnet  = module.subnet.src_public_subnet_id
   dst_private_subnet = module.subnet.dst_private_subnet_id
   name               = var.name
+  aws_dst_region     = var.aws_dst_region
+  aws_src_region     = var.aws_src_region
+  dst_cider          = ""
+  src_cider          = var.vpc_cidr_block_src
 }
 
 # Instantiate the Security Group module with custom providers
@@ -59,10 +70,12 @@ module "security_group" {
     aws.src = aws.src
     aws.dst = aws.dst
   }
-  source     = "./modules/security_group"
-  src_vpc_id = module.vpc.src_vpc_id
-  dst_vpc_id = module.vpc.dst_vpc_id
-  name       = var.name
+  source                = "./modules/security_group"
+  src_vpc_id            = module.vpc.src_vpc_id
+  dst_vpc_id            = module.vpc.dst_vpc_id
+  name                  = var.name
+  sg_egress_cidr_block  = var.sg_egress_cidr_block
+  sg_ingress_cidr_block = var.sg_ingress_cidr_block
 }
 
 # Instantiate the EC2 Instance module with custom providers
@@ -79,6 +92,8 @@ module "ec2_instance" {
   src_subnet_public = module.subnet.src_public_subnet_id
   keypair_file      = var.keypair_file_path
   name              = var.name
+  ami               = var.ami
+  instance_type     = var.instance_type
 }
 
 # Instantiate the Client VPN module with custom providers
@@ -94,9 +109,9 @@ module "client_vpn" {
   src_subnet_public      = module.subnet.src_public_subnet_id
   src_vpc                = module.vpc.src_vpc_id
   name                   = var.name
-  all_traffic_to_network = var.all_traffic_to_network
+  all_traffic_to_network = var.authorize_client_target_network_cidr
   client_cidr_block      = var.client_cidr_block
-  open_dns               = var.open_dns_address
+  open_dns               = var.VPN_dns_address
   key_save_folder        = var.key_save_folder
   aws_src_region         = var.aws_src_region
   aws_src_profile        = var.aws_src_profile

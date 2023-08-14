@@ -1,7 +1,15 @@
+######################## environment vars ########################
+
 variable "name" {
   type        = string
   description = "Your name"
   default     = "David"
+}
+
+variable "env" {
+  type        = string
+  description = "Your account environment"
+  default     = "prod"
 }
 
 variable "aws_src_region" {
@@ -28,17 +36,27 @@ variable "aws_dst_profile" {
   default     = "default"
 }
 
+######################## EC2 vars ########################
+
 variable "keypair_file_path" {
   type        = string
   description = "Your keypair local path"
   default     = "/Users/dzarzevs/.ssh/dz-key.pub"
 }
 
-variable "client_cidr_block" {
-  description = "VPN client CIDR block"
+variable "ami" {
   type        = string
-  default     = "10.200.0.0/16"
+  description = "Source instance AMI"
+  default     = "ami-02675d30b814d1daa"
 }
+
+variable "instance_type" {
+  type        = string
+  description = "EC2 instance type"
+  default     = "t2.micro"
+}
+
+######################## VPC vars ########################
 
 variable "vpc_cidr_block_src" {
   description = "Source VPC CIDR block"
@@ -52,28 +70,71 @@ variable "vpc_cidr_block_dst" {
   default     = "10.2.0.0/16"
 }
 
-variable "all_traffic_to_network" {
-  description = "CIDR block representing the target network for all traffic"
+######################## Subnets vars ########################
+
+variable "src_private_subnet_cidr_block" {
+  description = "Source private subnet CIDR block"
+  type        = string
+  default     = "10.1.1.0/24"
+}
+
+variable "src_public_subnet_cidr_block" {
+  description = "Source public subnet CIDR block"
+  type        = string
+  default     = "10.1.0.0/24"
+}
+
+variable "dst_private_subnet_cidr_block" {
+  description = "Destination public subnet CIDR block"
+  type        = string
+  default     = "10.2.1.0/24"
+}
+
+######################## Security group vars ########################
+
+variable "sg_ingress_cidr_block" {
+  description = "Security group ingress CIDR block"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+variable "sg_egress_cidr_block" {
+  description = "Security group egress CIDR block"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+######################## VPN vars ########################
+
+variable "client_cidr_block" {
+  description = "VPN client CIDR block"
+  type        = string
+  default     = "10.200.0.0/16"
+}
+
+variable "authorize_client_target_network_cidr" {
+  description = "CIDR block for the client target network authorization"
   type        = string
   default     = "10.0.0.0/16"
 }
 
-variable "open_dns_address" {
-  description = "OpenDNS IP address"
+variable "VPN_dns_address" {
+  description = "DNS IP address"
   type        = string
   default     = "8.8.8.8"
 }
 
 variable "key_save_folder" {
-  description = "Where to store keys (relative to pki folder)"
+  description = "Client VPN keys folder name"
   type        = string
   default     = "clientvpn_keys"
 }
 
-variable "env" {
-  description = "Your account environment"
-  type        = string
-  default     = "prod"
-}
+######################## Internet gateway vars ########################
 
+variable "igw_network_traffic" {
+  description = "Internet gateway cider block for route table resource"
+  type        = string
+  default     = "0.0.0.0/0"
+}
 

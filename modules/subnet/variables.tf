@@ -1,14 +1,10 @@
 
-variable "src_private_subnet_az" {
-  default = "us-east-1a"
+variable "src_region" {
+  type = string
 }
 
-variable "dst_private_subnet_az" {
-  default = "us-west-1a"
-}
-
-variable "src_public_subnet_az" {
-  default = "us-east-1b"
+variable "dst_region" {
+  type = string
 }
 
 variable "src_vpc_id" {
@@ -20,26 +16,26 @@ variable "dst_vpc_id" {
 }
 
 variable "src_private_subnet_cidr_block" {
-  type    = string
-  default = "10.1.1.0/24"
+  type = string
 }
 
 variable "src_public_subnet_cidr_block" {
-  type    = string
-  default = "10.1.0.0/24"
+  type = string
 }
 
 variable "dst_private_subnet_cidr_block" {
-  type    = string
-  default = "10.2.1.0/24"
+  type = string
 }
 
-variable "all_traffic" {
-  type    = string
-  default = "0.0.0.0/0"
+variable "igw_network_traffic" {
+  type = string
 }
 
 variable "igw" {
+  type = string
+}
+
+variable "name" {
   type = string
 }
 
