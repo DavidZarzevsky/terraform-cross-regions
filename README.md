@@ -88,6 +88,7 @@ Configuration Variables:
 **Configure S3 Backend:** 
 
 If you plan to use remote state storage with Amazon S3, open the backend.tf file and update the configuration for the S3 backend. Replace the placeholders with your actual bucket name and key prefix. This ensures that your Terraform state is stored remotely.
+If you are using other remote state storage edit the file accordingly.
 ```hcl
 # backend.tf
 terraform {
@@ -96,7 +97,7 @@ terraform {
     key            = "your/key/prefix"
     region         = "your-region"
     encrypt        = true
-    dynamodb_table = "your-dynamodb-lock-table"
+    profile        = "your-aws-profile"
   }
 }
 ```
