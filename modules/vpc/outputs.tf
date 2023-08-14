@@ -1,9 +1,9 @@
-output "first_vpc_id" {
-  description = "The ID of the first VPC."
-  value       = aws_vpc.first.id
+output "src_vpc_id" {
+  description = "The ID of the src VPC."
+  value       = aws_vpc.src.id
 }
 
-output "second_vpc_id" {
-  description = "The ID of the second VPC."
-  value       = aws_vpc.second.id
+output "dst_vpc_id" {
+  description = "The ID of the dst VPC."
+  value       = aws_vpc.dst.id
 }

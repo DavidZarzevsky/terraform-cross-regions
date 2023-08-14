@@ -1,20 +1,20 @@
-variable "first_subnet" {
+variable "src_subnet" {
   type = string
 }
 
-variable "first_subnet_public" {
+variable "src_subnet_public" {
   type = string
 }
 
-variable "second_subnet" {
+variable "dst_subnet" {
   type = string
 }
 
-variable "first_sg" {
+variable "src_sg" {
   type = set(string)
 }
 
-variable "second_sg" {
+variable "dst_sg" {
   type = set(string)
 }
 
@@ -22,7 +22,7 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "first_ami" {
+variable "src_ami" {
   default = "ami-02675d30b814d1daa"
 }
 
@@ -36,7 +36,7 @@ variable "ubuntu_data_file" {
 }
 
 variable "keypair_file" {
-  type    = string
+  type = string
 }
 
 variable "name" {

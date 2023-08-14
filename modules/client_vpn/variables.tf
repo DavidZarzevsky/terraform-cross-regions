@@ -1,71 +1,57 @@
-variable "first_subnet_private" {
+variable "src_subnet_private" {
   type = string
 }
 
-variable "first_subnet_public" {
+variable "src_subnet_public" {
   type = string
 }
 
-variable "first_stransit_gw" {
+variable "src_stransit_gw" {
   type = string
 }
 
-variable "first_sg" {
+variable "src_sg" {
   type = string
 }
 
-variable "first_vpc" {
+variable "src_vpc" {
   type = string
-}
-
-variable "public_subnet_cidr_block" {
-  type    = string
-  default = "10.0.1.0/24"
 }
 
 variable "client_cidr_block" {
   type    = string
-  default = "10.200.0.0/16"
 }
 
-variable "google_open_dns" {
+variable "open_dns" {
   type    = string
-  default = "8.8.8.8"
 }
 
 variable "all_traffic_to_network" {
-  type = string
-  default = "10.0.0.0/16"
+  type    = string
 }
 
 variable "certificate_body" {
-  type = string
-  default = "~/custom_folder/server.crt"
+  type    = string
 }
 
 variable "private_key" {
-  type = string
-  default = "~/custom_folder/server.key"
+  type    = string
 }
 
 variable "certificate_chain" {
-  type = string
-  default = "~/custom_folder/ca.crt"
+  type    = string
 }
 
 variable "client_certificate_body" {
-  type = string
-  default = "~/custom_folder/client1.domain.tld.crt"
+  type    = string
 }
 
 variable "client_private_key" {
-  type = string
-  default = "~/custom_folder/client1.domain.tld.key"
+  type    = string
 }
 
 variable "client_certificate_chain" {
-  type = string
-  default = "~/custom_folder/ca.crt"
+  type    = string
 }
 
 variable "name" {

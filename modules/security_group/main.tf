@@ -1,9 +1,8 @@
-# Define an AWS security group in the first account VPC
-resource "aws_security_group" "first" {
-  provider     = aws.first
-  name         = "david_security_group_f"
-  description  = "david_security_group"
-  vpc_id       = var.first_vpc_id
+# Define an AWS security group in the src account VPC
+resource "aws_security_group" "src" {
+  provider = aws.src
+  name     = "${var.name}_security_group_src"
+  vpc_id   = var.src_vpc_id
   # Define an ingress rule to allow inbound SSH traffic
   ingress {
     from_port   = 0
@@ -19,16 +18,15 @@ resource "aws_security_group" "first" {
     cidr_blocks = [var.all_cidr_block]
   }
   tags = {
-    Name = "david_first_security_group"
+    Name = "david_src_security_group"
   }
 }
 
-# Define an AWS security group in the second account VPC
-resource "aws_security_group" "second" {
-  provider     = aws.second
-  name         = "david_security_group_s"
-  description  = "david_security_group"
-  vpc_id       = var.second_vpc_id
+# Define an AWS security group in the dst account VPC
+resource "aws_security_group" "dst" {
+  provider = aws.dst
+  name     = "${var.name}_security_group_dst"
+  vpc_id   = var.dst_vpc_id
   # Define an ingress rule to deny all inbound traffic
   ingress {
     from_port   = 0
@@ -44,6 +42,6 @@ resource "aws_security_group" "second" {
     cidr_blocks = [var.all_cidr_block]
   }
   tags = {
-    Name = "david_second_security_group"
+    Name = "${var.name}_security_group_dst"
   }
 }
