@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket  = "sre-spot-tf-state-prod"
+    bucket  = ""
     encrypt = true
     key     = "dev/eu-central-1/services/terraform.tfstate"
-    profile = "SRE"
+    profile = ""
     region  = "us-east-1"
   }
 
@@ -11,7 +11,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.0"
-      #      configuration_aliases = [aws.src, aws.dst]
     }
   }
 }

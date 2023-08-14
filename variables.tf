@@ -3,7 +3,7 @@
 variable "name" {
   type        = string
   description = "Your name"
-  default     = "David"
+  default     = "name"
 }
 
 variable "env" {
@@ -27,13 +27,13 @@ variable "aws_dst_region" {
 variable "aws_src_profile" {
   type        = string
   description = "Your source AWS profile alias"
-  default     = "SRE"
+  default     = ""
 }
 
 variable "aws_dst_profile" {
   type        = string
   description = "Your destination AWS profile alias"
-  default     = "default"
+  default     = ""
 }
 
 ######################## EC2 vars ########################
@@ -41,7 +41,7 @@ variable "aws_dst_profile" {
 variable "keypair_file_path" {
   type        = string
   description = "Your keypair local path"
-  default     = "/Users/dzarzevs/.ssh/dz-key.pub"
+  default     = "/Users/israel/.ssh/il-key.pub"
 }
 
 variable "ami" {
