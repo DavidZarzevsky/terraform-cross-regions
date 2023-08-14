@@ -154,6 +154,12 @@ terraform destroy
 │   │   ├── main.tf
 │   │   ├── variables.tf
 │   │   ├── outputs.tf
+│   ├── scripts/
+│   │   ├── authorize_client.sh
+│   │   ├── create_client.sh
+│   │   ├── getVPN.sh
+│   │   ├── prepare_easyrsa.sh
+│   │   ├── serverData.tpl
 │   ├── security_group/
 │   │   ├── main.tf
 │   │   ├── variables.tf
