@@ -42,35 +42,16 @@ Open the `variables.tf` file and review the configuration variables available fo
 These variables define various settings such as regions, environment names, client certificate names, and more.
 You can modify these variables to match your specific requirements.
 
-
-Configuration Variables:
+## Configuration Variables
 
 | Name                           | Description                                         | Type         | Default           |
 |--------------------------------|-----------------------------------------------------|--------------|-------------------|
-| region                         | Region to work on.                                 | string       |                   |
-| env                            | The environment (e.g. prod, dev, stage)            | string       | "prod"            |
-| clients                        | A list of client certificate name                  | list(string) | ["client"]        |
-| cert_issuer                    | Common Name for CA Certificate                     | list(string) | "CA"              |
-| cert_server_name               | Name for the Server Certificate                    | string       | "Server"          |
-| aws_tenant_name                | Name for the AWS Tenant                            | string       | "AWS"             |
-| key_save_folder                | Where to store keys (relative to pki folder)       | string       | "clientvpn_keys"  |
-| subnet_id                      | The subnet ID to which we need to associate       | string       |                   |
-| target_cidr_block              | The CIDR block to which the client will have access| string       |                   |
-| dns_servers                    | Information about the DNS servers                  | list(string) | null              |
-| vpn_name                       | The name of the VPN Client Connection              | string       | "VPN"             |
-| cloudwatch_enabled             | Indicates whether connection logging is enabled   | bool         | true              |
-| cloudwatch_log_group           | The name of the cloudwatch log group               | string       | vpn_endpoint_cloudwatch_log_group |
-| cloudwatch_log_stream          | The name of the cloudwatch log stream              | string       | vpn_endpoint_cloudwatch_log_stream |
-| aws_cli_profile_name           | The name of the aws cli profile used in scripts    | string       | default           |
-| client_auth                    | the type of client authentication                 | string       | certificate-authentication |
-| active_directory_id            | The ID of the Active Directory                    | string       | null              |
-| root_certificate_chain_arn     | The ARN of the client certificate                | string       | null              |
-| saml_provider_arn              | The ARN of the IAM SAML identity provider         | string       | null              |
 | name                           | Your name                                           | string       | "name"           |
+| env                            | The environment (e.g. prod, dev, stage)            | string       | "prod"            |
 | aws_src_region                 | Your source account region                         | string       | "us-east-1"       |
 | aws_dst_region                 | Your destination account region                    | string       | "us-west-1"       |
-| aws_src_profile                | Your source AWS profile alias                      | string       | ""             |
-| aws_dst_profile                | Your destination AWS profile alias                 | string       | ""         |
+| aws_src_profile                | Your source AWS profile alias                      | string       | ""                |
+| aws_dst_profile                | Your destination AWS profile alias                 | string       | ""                |
 | keypair_file_path              | Your keypair local path                            | string       | "/Users/israel/.ssh/il-key.pub" |
 | ami                            | Source instance AMI                                | string       | "ami-02675d30b814d1daa" |
 | instance_type                  | EC2 instance type                                  | string       | "t2.micro"        |
@@ -84,6 +65,7 @@ Configuration Variables:
 | client_cidr_block              | VPN client CIDR block                              | string       | "10.200.0.0/16"   |
 | authorize_client_target_network_cidr | CIDR block for client target network authorization | string       | "10.0.0.0/16" |
 | VPN_dns_address                | DNS IP address                                     | string       | "8.8.8.8"         |
+
 
 **Configure S3 Backend:** 
 
