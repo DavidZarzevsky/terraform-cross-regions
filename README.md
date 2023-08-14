@@ -8,16 +8,12 @@ This repository exemplifies the deployment and connection of AWS VPCs across AWS
 
 This project uses terraform to deploy infrastructure, you can download it here: https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-## Terraform versions
-
-Terraform 0.12 and newer.
-
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
-| aws | >= 2.49 |
+| aws | >= 4.0 |
 | bash |  |
 
 
