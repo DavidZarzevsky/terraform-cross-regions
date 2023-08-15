@@ -4,9 +4,11 @@
 
 This repository exemplifies the deployment and connection of AWS VPCs across AWS accounts and regions through the use of a transit gateway. This project's primary achievement is enabling SSH access to instances across VPC via a client VPN in one account, providing a secure peering. 
 
+
 ## Terraform
 
 This project uses terraform to deploy infrastructure, you can download it here: https://learn.hashicorp.com/tutorials/terraform/install-cli
+
 
 ## Requirements
 
@@ -21,16 +23,17 @@ This project uses terraform to deploy infrastructure, you can download it here: 
 
 - [Introduction](#introduction)
 - [Modifications](#modifications)
+- [Usage](#usage)
 - [Deploy](#deploy)
 - [Destroy](#destroy)
 - [Features](#features)
 - [Directory Structure](#directory-structure)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
+
 
 ## Introduction
 
 The **Terraform Cross-Region Deployment** project demonstrates the potential of Terraform in orchestrating complex cloud infrastructures. It showcases the ability to create and manage AWS VPCs across different accounts and regions, and establish secure communication pathways between them using a transit gateway. The ultimate goal is to enable technical enthusiasts and professionals to SSH into instances using a client VPN, promoting security, accessibility, and organizational efficiency.
+
 
 ## Modifications
 
@@ -38,7 +41,7 @@ Open the `variables.tf` file and review the configuration variables available fo
 These variables define various settings such as regions, environment names, client certificate names, and more.
 You can modify these variables to match your specific requirements.
 
-## Configuration Variables
+**Configuration Variables**
 
 | Name                           | Description                                         | Type         | Default           |
 |--------------------------------|-----------------------------------------------------|--------------|-------------------|
@@ -80,10 +83,16 @@ terraform {
 }
 ```
 
-### Outputs
+## Usage
+
+Upon successful deployment, you'll gain the capability to SSH into instances using private IP addresses via the client VPN connection, offering an effective means of secure access to your infrastructure.
+
+
+## Outputs
 
 You will be presented with the public and private IPs of the EC2 instances.
 Use them to SSH into the EC2 instances.
+
 
 ## Deploy
 
@@ -119,6 +128,7 @@ terraform apply
    Then SSH to the source EC2 instance
    from the EC2 instance SSH into the destination EC2 instance, using the key file we copied using the 'scp' command.
    
+   
 ## Destroy
 
 To Destroy the infrastructure, follow these steps:
@@ -127,6 +137,7 @@ To Destroy the infrastructure, follow these steps:
 terraform destroy
 ```
 
+
 ## Features
 
 - **Multi-Account, Multi-Region Deployment**: Highlighting the prowess of Terraform in managing infrastructure across distinct AWS environments.
@@ -134,6 +145,7 @@ terraform destroy
 - **Client VPN Configuration**: Setting up a client VPN to allow secure and remote access to instances within the infrastructure.
 - **Modular Design**: Organizing the project with modular configurations for enhanced readability and reusability.
 - **Collaborative Infrastructure**: Empowering collaboration through the use of Infrastructure as Code principles.
+
 
 ## Directory Structure
 
@@ -178,20 +190,8 @@ terraform destroy
 ├── variables.tf
 </pre>
 
-## Getting Started
-
-follow these steps:
-
-1. **Clone the Repository**: Clone this repository to your local environment.
-2. **Configuration**: Modify `variables.tf` and other configuration files to tailor them to your specific environment.
-3. **Initialize Terraform**: Run `terraform init` to prepare the working directory.
-4. **Deploy**: Execute `terraform apply` to initiate the infrastructure deployment.
-
-## Usage
-
-Upon successful deployment, you'll gain the capability to SSH into instances using private IP addresses via the client VPN connection, offering an effective means of secure access to your infrastructure.
 
 ---
 
-Utilizing Terraform's capabilities,this project aims to illustrate how to architect, deploy, and manage multi-account, multi-region infrastructure in the cloud.
+Utilizing Terraform's capabilities, this project aims to illustrate how to architect, deploy, and manage multi-account, multi-region infrastructure in the cloud.
 Special thanks to Moshe Avni.
