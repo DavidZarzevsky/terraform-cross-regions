@@ -59,7 +59,7 @@ resource "aws_key_pair" "dz_keypair_2" {
   key_name   = "${var.name}-key"
   public_key = file(var.keypair_file)
   tags = {
-    creator = "David"
+    creator = "${var.name}"
   }
 }
 
