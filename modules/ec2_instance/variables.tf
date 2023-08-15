@@ -22,7 +22,11 @@ variable "instance_type" {
   type = string
 }
 
-variable "ami" {
+variable "src_region_ami" {
+  type = string
+}
+
+variable "dst_region_ami" {
   type = string
 }
 
