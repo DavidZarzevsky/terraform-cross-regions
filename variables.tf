@@ -1,3 +1,4 @@
+
 ######################## environment vars ########################
 
 variable "name" {
@@ -44,11 +45,19 @@ variable "keypair_file_path" {
   default     = "/Users/israel/.ssh/il-key.pub"
 }
 
-variable "ami" {
+
+variable "src_region_ami" {
   type        = string
   description = "Source instance AMI"
   default     = "ami-02675d30b814d1daa"
 }
+
+variable "dst_region_ami" {
+  type        = string
+  description = "destination instance AMI"
+  default     = "ami-01973462ceff35e85"
+}
+
 
 variable "instance_type" {
   type        = string

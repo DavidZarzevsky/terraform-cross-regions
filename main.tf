@@ -60,7 +60,7 @@ module "peering" {
   name               = var.name
   aws_dst_region     = var.aws_dst_region
   aws_src_region     = var.aws_src_region
-  dst_cider          = ""
+  dst_cider          = var.vpc_cidr_block_dst
   src_cider          = var.vpc_cidr_block_src
 }
 
@@ -92,8 +92,9 @@ module "ec2_instance" {
   src_subnet_public = module.subnet.src_public_subnet_id
   keypair_file      = var.keypair_file_path
   name              = var.name
-  ami               = var.ami
   instance_type     = var.instance_type
+  dst_region_ami    = var.dst_region_ami
+  src_region_ami    = var.src_region_ami
 }
 
 # Instantiate the Client VPN module with custom providers
