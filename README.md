@@ -125,8 +125,8 @@ terraform apply
    ```sh 
    scp -i /your/path/to/key-file /your/path/to/key-file ${EC2 OS name}@${source EC2 private IP}:~/
    ```
-   Then SSH to the source EC2 instance
-   from the EC2 instance SSH into the destination EC2 instance, using the key file we copied using the 'scp' command.
+   Then SSH the source EC2 instance.
+   From the first EC2, SSH into the destination EC2 using the key file we copied.
    
    
 ## Destroy
