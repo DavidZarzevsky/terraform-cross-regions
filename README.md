@@ -114,9 +114,11 @@ terraform apply
    Run The next command:
 
    ```sh 
-   scp -i /your/path/to/key-file /your/path/to/key-file ${EC2 OS name}@${EC2 private IP}:~/
+   scp -i /your/path/to/key-file /your/path/to/key-file ${EC2 OS name}@${source EC2 private IP}:~/
    ```
-
+   Then SSH to the source EC2 instance
+   from the EC2 instance SSH into the destination EC2 instance, using the key file we copied using the 'scp' command.
+   
 ## Destroy
 
 To Destroy the infrastructure, follow these steps:
