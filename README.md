@@ -186,7 +186,6 @@ terraform destroy
 ├── backend.tf
 ├── main.tf
 ├── tf.gitignore
-├── serverData.tpl
 ├── variables.tf
 </pre>
 
