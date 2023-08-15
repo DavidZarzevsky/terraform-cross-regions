@@ -18,7 +18,7 @@ resource "aws_security_group" "src" {
     cidr_blocks = [var.sg_egress_cidr_block]
   }
   tags = {
-    Name = "david_src_security_group"
+    Name = "${var.name}_src_security_group"
   }
 }
 
