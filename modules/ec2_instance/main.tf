@@ -44,7 +44,7 @@ resource "aws_instance" "dst_instance_private" {
 }
 
 # Define an AWS key pair for the src provider
-resource "aws_key_pair" "dz_keypair_1" {
+resource "aws_key_pair" "keypair_1" {
   provider   = aws.src
   key_name   = "${var.name}-key"
   public_key = file(var.keypair_file)
@@ -54,7 +54,7 @@ resource "aws_key_pair" "dz_keypair_1" {
 }
 
 # Define an AWS key pair for the dst provider
-resource "aws_key_pair" "dz_keypair_2" {
+resource "aws_key_pair" "keypair_2" {
   provider   = aws.dst
   key_name   = "${var.name}-key"
   public_key = file(var.keypair_file)
